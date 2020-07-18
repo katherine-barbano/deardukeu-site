@@ -7,6 +7,30 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//parses the JSON and prints all captions into console
+const fs = require('fs')
+
+fs.readFile('deardukeu.json', 'utf8', (err, fileContents) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  try {
+
+    const data = JSON.parse(fileContents);
+    
+    for(i=0; i<data.length; i++){
+      console.log(data[i].node.edge_media_to_caption.edges[0].node.text);
+  }
+
+  } catch(err) {
+    console.error(err)
+  }
+})
+
+
+
+
 var app = express();
 
 app.engine('html', require('ejs').renderFile);
