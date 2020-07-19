@@ -28,7 +28,12 @@
             font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
         }
         .navbar {
-            background-color:#012169;
+            background-color:#005587;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .navbar-brand {
@@ -38,23 +43,17 @@
             margin: auto;
             font-weight:500;
         }
-        .box {
-            background-color:lightsteelblue;
-            width: 350px;
-            height: 350px;
-            display: inline-block;
-            margin: 10px;
-        }
         .duke {
             background-color: #012169;
-            color: white;
+            opacity: 95%;
+            color: #F3F2F1;
         }
         .unc {
-            background-color: #4B9CD3;
-            color: black;
+            background-color: #a4cae1;
+            color: #13294B;
         }
         .ncsu {
-            background-color: #990000;
+            background-color: #bd2e28;
             color: white;
         }
     </style>
@@ -63,20 +62,32 @@
 <body>
     <header>
         <nav class="navbar">
-            <p class="navbar-brand" href="#"> Dear Duke.</p>
+            <p class="navbar-brand" href="#"> Dear Triangle.</p>
             <div class="collapse-navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto"></ul>
             </div>
         </nav>
     </header>
+    
+    <br><br><br><br>
 
     <main role="main">
-        <div class="d-flex align-content-stretch flex-wrap justify-content-center">
-            <% for (c in students) { %>
-                <div class="box" onclick="display()">
-                    <p> <%= students[c] %> </p>
-                </div>
-            <% } %>
+        <div class="container">
+            <div class="card-columns">
+                <% for (c in students) { %>
+                    <% if (students[c].includes("@ncstate") || students[c].includes("NCSU")) { %>
+                    <% var school = "ncsu"; %>
+                    <% } else if (students[c].includes("@uncchapelhill")) { %>
+                    <% var school = "unc"; %>
+                    <% } else { %>
+                    <% var school = "duke"; } %>
+                    <div class="card <%= school %>">
+                        <div class="card-body">
+                            <p class="card-text"> <%= students[c] %> </p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </main>
 </body>
