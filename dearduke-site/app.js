@@ -7,37 +7,77 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-//parses the JSON and prints all captions into console
-// const fs = require('fs')
-// captions = []
-// fs.readFile(process.cwd() + '/data/deardukeu.json', 'utf8', (err, fileContents) => {
-//   if (err) {
-//     console.error(err)
-//     return
-//   }
-//   try {
-//     const data = JSON.parse(fileContents);
-//     for(i=0; i<data.length; i++){
-//       captions.push(data[i].node.edge_media_to_caption.edges[0].node.text);
-//     }
-//     read_ig_data(captions)
-//   } catch(err) {
-//     console.error(err)
-//   }
-// })
-// function read_ig_data(captions) {
-//   console.log(captions);
-// }
+// //generates captions from instamancer 
+// var create=require("instamancer");
 
+// const options= {
+//   total: 0,
+//   fullAPI: true
+// };
+
+// const dataDuke=create.createApi("user", "deardukeu",options);
+// const dataUNC=create.createApi("user", "dearunc",options);
+// const dataNCSU=create.createApi("user","dearncsu",options);
+// const dataAbolishDuke=create.createApi("user","abolishdukeifcandpanhellenic",options);
+
+// var maxPostDuke="";
+// var maxLikesDuke=0;
+// var maxPostUNC="";
+// var maxLikesUNC=0;
+// var maxPostNCSU="";
+// var maxLikesNCSU=0;
+
+// captions=[];
+
+// (async () => {
+//   for await (const post of dataDuke.generator()) {  
+//       //prints captions from all posts. captions contained in post.shortcode_media.edge_media_to_caption.edges[0].node.text
+//       var count=post.shortcode_media.edge_media_preview_like.count;
+//       var caption=post.shortcode_media.edge_media_to_caption.edges[0].node.text;
+//       captions.push(caption);
+//       if(count>maxLikesDuke)
+//       {
+//         maxPostDuke=caption;
+//         maxLikesDuke=count;
+//       }
+//   }
+//   for await (const post of dataUNC.generator()) {  
+//     //prints captions from all posts. captions contained in post.shortcode_media.edge_media_to_caption.edges[0].node.text
+//     //console.log(post.shortcode_media.edge_media_to_caption.edges[0].node.text);
+//     var count=post.shortcode_media.edge_media_preview_like.count;
+//     var caption=post.shortcode_media.edge_media_to_caption.edges[0].node.text;
+//     captions.push(caption);
+//     if(count>maxLikesUNC)
+//     {
+//       maxPostUNC=caption;
+//       maxLikesUNC=count;
+//     }
+// }
+// for await (const post of dataNCSU.generator()) {  
+//   //prints captions from all posts. captions contained in post.shortcode_media.edge_media_to_caption.edges[0].node.text
+//   //console.log(post.shortcode_media.edge_media_to_caption.edges[0].node.text);
+//   var count=post.shortcode_media.edge_media_preview_like.count;
+//   var caption=post.shortcode_media.edge_media_to_caption.edges[0].node.text;
+//   captions.push(caption);
+//   if(count>maxLikesNCSU)
+//   {
+//     maxPostNCSU=caption;
+//     maxLikesNCSU=count;
+//   }
+// }
+// for await (const post of dataAbolishDuke.generator()) {  
+//   //prints captions from all posts. captions contained in post.shortcode_media.edge_media_to_caption.edges[0].node.text
+//   //console.log(post.shortcode_media.edge_media_to_caption.edges[0].node.text);
+//   captions.push(post.shortcode_media.edge_media_to_caption.edges[0].node.text);
+// }
+// })();
+
+
+//end generating captions
 
 var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
-
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

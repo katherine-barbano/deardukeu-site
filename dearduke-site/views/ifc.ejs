@@ -28,7 +28,12 @@
             font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
         }
         .navbar {
-            background-color:#012169;
+            background-color:#005587;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            z-index: 1;
         }
 
         .navbar-brand {
@@ -38,23 +43,38 @@
             margin: auto;
             font-weight:500;
         }
-        .box {
-            background-color:lightsteelblue;
-            width: 350px;
-            height: 350px;
-            display: inline-block;
-            margin: 10px;
-        }
         .duke {
             background-color: #012169;
-            color: white;
+            opacity: 95%;
+            color: #F3F2F1;
         }
         .unc {
-            background-color: #4B9CD3;
-            color: black;
+            background-color: #a4cae1;
+            color: #13294B;
         }
         .ncsu {
-            background-color: #990000;
+            background-color: #bd2e28;
+            color: white;
+        }
+        .a {
+            color: white;
+            font-size:x-large;
+            margin: auto;
+            text-align: justify;
+        }
+        a:link {
+            color: white;
+            font-size:large;
+            margin: auto;
+
+        }
+        a:visited {
+            color: white;
+        }
+        a:hover {
+            opacity: 50%;
+        }
+        a:active {
             color: white;
         }
     </style>
@@ -62,21 +82,46 @@
 
 <body>
     <header>
-        <nav class="navbar">
-            <p class="navbar-brand" href="#"> Dear Duke.</p>
-            <div class="collapse-navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto"></ul>
+        <nav class="navbar navbar-expand-lg navbar-inverse">
+            <ul class="navbar-nav mr-auto">
+                <div class="container">
+                <a class="navbar-brand" href="/"> <h1 style="font-weight:bold; font-size:xx-large;">Dear Triangle. &#160&#160&#160&#160&#160</h1></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="students">For Students &#160&#160</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faculty">For Faculty &#160&#160</a>
+                </li>
+                <li class="nav-item" style="font-weight:bold;">
+                    <a class="nav-link" href="ifc">For IFC &#160&#160</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="panhel">For Panhel &#160&#160</a>
+                </li>
             </div>
+            </ul>
         </nav>
     </header>
 
+    <br><br><br><br>
+
     <main role="main">
-        <div class="d-flex align-content-stretch flex-wrap justify-content-center">
-            <% for (c in ifc) { %>
-                <div class="box" onclick="display()">
-                    <p> <%= ifc[c] %> </p>
-                </div>
-            <% } %>
+        <div class="container">
+            <div class="card-columns">
+                <% for (c in ifc) { %>
+                    <% if (ifc[c].includes("@ncstate") || ifc[c].includes("NCSU")) { %>
+                    <% var school = "ncsu"; %>
+                    <% } else if (ifc[c].includes("@uncchapelhill")) { %>
+                    <% var school = "unc"; %>
+                    <% } else { %>
+                    <% var school = "duke"; } %>
+                    <div class="card <%= school %>">
+                        <div class="card-body">
+                            <p class="card-text"> <%= ifc[c] %> </p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </main>
 </body>
