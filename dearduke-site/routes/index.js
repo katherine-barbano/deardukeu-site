@@ -180,7 +180,7 @@ maxArNCSU =[maxPostNCSU];
   // })
 
   router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('index', {dukepost: maxPostDuke, uncpost: maxPostUNC, ncsupost: maxPostNCSU});
   });
   router.get('/faculty', function (req, res) {
     res.render('faculty')
