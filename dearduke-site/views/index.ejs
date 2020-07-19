@@ -144,22 +144,11 @@
         </div>
 
         <div class="container marketing">
-            <!-- Three boxes below the carousel -->
-            <div class="row">
-                <div class="box" onclick="display()"></div><!-- /.col-lg-4 -->
-                <div class="box"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
-
-            <div class="row">
-                <div class="box" id="one"></div><!-- /.col-lg-4 -->
-                <div class="box" id="two"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
-            
             <div class="d-flex align-content-stretch flex-wrap">
                 <% for (c in captions) { %>
-                <div class="box">
+                <div class="box onclick="display()">
+                    <% if(captions[c].includes("race")) %>
+                    <style>{color:pink;}</style>
                     <p> <%= captions[c] %> </p>
                 </div>
                 <% } %>
