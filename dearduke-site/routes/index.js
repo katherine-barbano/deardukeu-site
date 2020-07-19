@@ -24,8 +24,5 @@ var router = express.Router();
       res.render('index', { text: captions });
     });
   }
-// router.get('/', function(req, res, next) {
-//   res.render('index', { text: "hi" });
-// });
 
 module.exports = router;
