@@ -123,19 +123,13 @@
         </div>
 
         <div class="container marketing">
-            <!-- Three boxes below the carousel -->
-            <div class="row">
-                <div class="box"></div><!-- /.col-lg-4 -->
-                <div class="box"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
-
-            <div class="row">
-                <div class="box"></div><!-- /.col-lg-4 -->
-                <div class="box"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
-
+            <div class="d-flex align-content-stretch flex-wrap">
+                <% for (c in captions) { %>
+                <div class="box">
+                    <p> <%= captions[c] %> </p>
+                </div>
+                <% } %>
+            </div>
         </div>
     </main>
 </body>
