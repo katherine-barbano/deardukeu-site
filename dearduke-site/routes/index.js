@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var $ = require('jquery');
 
 /* GET home page. */
   const fs = require('fs')
@@ -29,7 +30,7 @@ function display() {
   console.log("hello");
 }
 
-(function( $ ){
+/* (function( $ ){
 
   $.fn.fitText = function( kompressor, options ) {
 
@@ -60,7 +61,7 @@ function display() {
 
   };
 
-})( jQuery );
+})( $ ); */
 
 /* $('.box').on('click', function() {
   var $element = $(this);
