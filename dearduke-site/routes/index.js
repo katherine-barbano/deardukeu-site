@@ -33,10 +33,10 @@ students = [];
       var count=post.shortcode_media.edge_media_preview_like.count;
       var caption=post.shortcode_media.edge_media_to_caption.edges[0].node.text;
       if(! (caption.toLowerCase().includes("announcement") || caption.toLowerCase().includes("@kappasigmaduke") || caption.includes("Welcome"))) {
-        if(caption.toLowerCase().includes("ifc") || caption.toLowerCase().includes("frat") || caption.toLowerCase().includes("greek")) {
+        if(caption.toLowerCase().includes("ifc") || caption.toLowerCase().includes("frat") || (caption.toLowerCase().includes("greek") && !(caption.toLowerCase().includes("panhel") || caption.toLowerCase().includes("sorority")))) {
           ifc.push(caption);
         }
-        if(caption.toLowerCase().includes("greek") || caption.toLowerCase().includes("panhel") || caption.toLowerCase().includes("sorority")) {
+        else if(caption.toLowerCase().includes("greek") || caption.toLowerCase().includes("panhel") || caption.toLowerCase().includes("sorority")) {
           panhel.push(caption);
         }
         else if (caption.toLowerCase().includes("prof") || caption.toLowerCase().includes("counselor") || caption.toLowerCase().includes("manager") || caption.toLowerCase().includes("advisor") || caption.toLowerCase().includes("admin") || caption.toLowerCase().includes("tenure") || caption.toLowerCase().includes("office")) {
