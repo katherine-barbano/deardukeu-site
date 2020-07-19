@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../public/stylesheets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700|Open+Sans:400,400i,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -22,8 +23,12 @@
         crossorigin="anonymous"></script>
     <script src="../routes/index.js"></script>
     <style>
+        * {
+            font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
         .navbar {
-            background-color:darkblue;
+            background-color:#012169;
         }
 
         .navbar-brand {
@@ -40,7 +45,7 @@
 
         .carousel-item {
             height: 32rem;
-          }
+        }
 
         .box {
             background-color:lightsteelblue;
@@ -142,19 +147,40 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        <style>
+            .eno {
+                background-color: #339898;
+            }
+            .prussian-blue {
+                background-color: #005587;
+            }
+            .hatteras {
+                background-color: #E2E6ED;
+            }
+        </style>
 
-        <div class="container marketing">
-            <div class="d-flex align-content-stretch flex-wrap">
-                <% for (c in captions) { %>
-                <div class="box onclick="display()">
-                    <% if(captions[c].includes("race")) %>
-                    <style>{color:pink;}</style>
-                    <p> <%= captions[c] %> </p>
-                </div>
+            <div class="d-flex align-content-stretch flex-wrap justify-content-center">
+                <% for (c in panhel) { %>
+                    <div class="box eno" onclick="display()">
+                        <p> <%= panhel[c] %> </p>
+                    </div>
+                <% } %>
+                <% for (c in ifc) { %>
+                    <div class="box eno" onclick="display()">
+                        <p> <%= ifc[c] %> </p>
+                    </div>
+                <% } %>
+                <% for (c in prof) { %>
+                    <div class="box" onclick="display()">
+                        <p> <%= prof[c] %> </p>
+                    </div>
+                <% } %>
+                <% for (c in students) { %>
+                    <div class="box hatteras" onclick="display()">
+                        <p> <%= students[c] %> </p>
+                    </div>
                 <% } %>
             </div>
-
-        </div>
     </main>
 </body>
 
