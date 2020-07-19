@@ -7,6 +7,25 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//generates captions from instamancer 
+var create=require("instamancer");
+const options= {
+  total: 0,
+  fullAPI: true
+};
+
+const data=create.createApi("user", "deardukeu",options);
+
+(async () => {
+  for await (const post of data.generator()) {  
+      //prints captions from all posts. captions contained in post.shortcode_media.edge_media_to_caption.edges[0].node.text
+      console.log(post.shortcode_media.edge_media_to_caption.edges[0].node.text);
+  }
+})();
+//end generating captions
+
+
+
 var app = express();
 
 app.engine('html', require('ejs').renderFile);
