@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dear Duke University</title>
+    <meta charset="utf=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name=”description” content="From Black, Indigenous, and people of color at Duke University.">
+    <meta name=”robots” content="index, follow">
+    <meta name="google-site-verification" content="0qJv3FGkfW32e3C8z35MdHiODEIKweCt6GsfXQXh218" />
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,700|Open+Sans:400,400i,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="../routes/index.js"></script>
+    <style>
+        * {
+            font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        .navbar {
+            background-color:#012169;
+        }
+
+        .navbar-brand {
+            color:white; 
+            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size:xx-large;
+            margin: auto;
+            font-weight:500;
+        }
+        .box {
+            background-color:lightsteelblue;
+            width: 350px;
+            height: 350px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .duke {
+            background-color: #012169;
+            color: white;
+        }
+        .unc {
+            background-color: #4B9CD3;
+            color: black;
+        }
+        .ncsu {
+            background-color: #990000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <p class="navbar-brand" href="#"> Dear Duke.</p>
+            <div class="collapse-navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto"></ul>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <div class="d-flex align-content-stretch flex-wrap justify-content-center">
+            <% for (c in panhel) { %>
+                <div class="box" onclick="display()">
+                    <p> <%= panhel[c] %> </p>
+                </div>
+            <% } %>
+        </div>
+    </main>
+</body>
+
+</html>
