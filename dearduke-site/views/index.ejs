@@ -23,38 +23,45 @@
     <script src="../routes/index.js"></script>
     <style>
         .navbar {
-            background-color:darkblue;
+            background-color: darkblue;
         }
 
         .navbar-brand {
-            color:white; 
-            font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-size:xx-large;
-            margin: auto;
-            font-weight:500;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: xx-large;
+            font-weight: 500;
         }
+
         .description {
-            color:white;
-            margin:auto;
+            color: white;
+            margin: auto;
         }
 
         .carousel-item {
             height: 32rem;
-          }
+        }
 
         .box {
-            background-color:lightsteelblue;
+            background-color: lightsteelblue;
             width: 350px;
             height: 350px;
             display: inline-block;
             margin: 10px;
-
         }
 
         .row {
             margin: auto;
         }
 
+        .caption {
+            width: 350px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            height: fit-content;
+            word-wrap: break-word;
+        }
     </style>
 </head>
 
@@ -64,20 +71,22 @@
             <p class="navbar-brand" href="#"> Dear Duke.</p>
             <div class="collapse-navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-<!--                     <li class="nav-item active">
-                        <a class="nav-link" href="#">All Stories<span class="sr-only">(current)</span></a>
-                    </li> -->
-                    <!--                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li> -->
+                        <a class="nav-link" href="#">To IFC &amp; Panhel<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">To Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">To Administration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">To Students</a>
+                    </li>
                 </ul>
-                <!--                 <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form> -->
             </div>
         </nav>
     </header>
@@ -144,26 +153,26 @@
         </div>
 
         <div class="container marketing">
-            <!-- Three boxes below the carousel -->
-            <div class="row">
-                <div class="box" onclick="display()"></div><!-- /.col-lg-4 -->
-                <div class="box"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
 
-            <div class="row">
-                <div class="box" id="one"></div><!-- /.col-lg-4 -->
-                <div class="box" id="two"></div>
-                <div class="box"></div>
-            </div><!-- /.row -->
-            
             <div class="d-flex align-content-stretch flex-wrap">
                 <% for (c in captions) { %>
                 <div class="box">
-                    <p> <%= captions[c] %> </p>
+                    <p class="caption"> <%= captions[c] %> </p>
                 </div>
                 <% } %>
             </div>
+
+            <!--             <div class="row">
+                <div class="box" onclick="display()"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+
+            <div class="row">
+                <div class="box" id="one"></div>
+                <div class="box" id="two"></div>
+                <div class="box"></div>
+            </div>-->
 
         </div>
     </main>
