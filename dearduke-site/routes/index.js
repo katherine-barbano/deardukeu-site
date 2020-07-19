@@ -121,6 +121,10 @@ for await (const post of dataAbolishDuke.generator()) {
     }
   }
 }
+maxArDuke =[maxPostDuke];
+maxArUNC =[maxPostUNC];
+maxArNCSU =[maxPostNCSU];
+
 })();
 
 // for(i=0; i<captions.length; i++){
