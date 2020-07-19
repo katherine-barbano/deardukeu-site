@@ -21,10 +21,12 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <script src="../routes/index.js"></script>
+
     <style>
         .navbar {
             background-color: darkblue;
         }
+
         .navbar-menu {
             display: inline-block;
         }
@@ -75,10 +77,12 @@
             <div class="collapse-navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-menu">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" style="color: white;">Home<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" style="color: white;">Home<span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: white;">To IFC &amp; Panhel<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#" style="color: white;">To IFC &amp; Panhel<span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color: white;">To Faculty</a>
@@ -159,10 +163,20 @@
             <div class="d-flex align-content-stretch flex-wrap">
                 <% for (c in captions) { %>
                 <div class="box">
+                    <!-- <svg viewBox="0 0 350 350">
+                        <text x="0" y="100"><%= captions[c] %></text>
+                      </svg> -->
                     <p class="caption"> <%= captions[c] %> </p>
+                   <!--  <script src="jquery.fittext.js"></script> -->
+                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                    <script>
+                        jQuery("#caption").fitText();
+                    </script>
                 </div>
                 <% } %>
             </div>
+
+
 
             <!--             <div class="row">
                 <div class="box" onclick="display()"></div>
