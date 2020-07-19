@@ -7,6 +7,29 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+//parses the JSON and prints all captions into console
+// const fs = require('fs')
+// captions = []
+// fs.readFile(process.cwd() + '/data/deardukeu.json', 'utf8', (err, fileContents) => {
+//   if (err) {
+//     console.error(err)
+//     return
+//   }
+//   try {
+//     const data = JSON.parse(fileContents);
+//     for(i=0; i<data.length; i++){
+//       captions.push(data[i].node.edge_media_to_caption.edges[0].node.text);
+//     }
+//     read_ig_data(captions)
+//   } catch(err) {
+//     console.error(err)
+//   }
+// })
+// function read_ig_data(captions) {
+//   console.log(captions);
+// }
+
+
 var app = express();
 
 //app.engine('html', require('ejs').renderFile);
